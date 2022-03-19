@@ -1,0 +1,4 @@
+com\blackangel\clients\notification\NotificationClient.class
+com\blackangel\clients\notification\NotificationRequest.class
+com\blackangel\clients\fraud\FraudCheckResponse.class
+com\blackangel\clients\fraud\FraudClient.class
