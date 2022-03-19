@@ -1,0 +1,8 @@
+com\blackangel\customer\CustomerApplication.class
+com\blackangel\customer\CustomerController.class
+com\blackangel\customer\CustomerRepository.class
+com\blackangel\customer\CustomerService.class
+com\blackangel\customer\Customer.class
+com\blackangel\customer\Customer$CustomerBuilder.class
+com\blackangel\customer\CustomerConfig.class
+com\blackangel\customer\CustomerRegistrationRequest.class

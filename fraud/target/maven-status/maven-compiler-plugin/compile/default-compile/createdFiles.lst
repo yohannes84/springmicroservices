@@ -1,0 +1,6 @@
+com\blackangel\fraud\FraudCheckService.class
+com\blackangel\fraud\FraudCheckHistory.class
+com\blackangel\fraud\FraudApplication.class
+com\blackangel\fraud\FraudCheckHistory$FraudCheckHistoryBuilder.class
+com\blackangel\fraud\FraudCheckHistoryRepository.class
+com\blackangel\fraud\FraudController.class

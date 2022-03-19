@@ -1,0 +1,9 @@
+com\blackangel\notification\NotificationController.class
+com\blackangel\notification\NotificationApplication$Person.class
+com\blackangel\notification\NotificationConfig.class
+com\blackangel\notification\Notification.class
+com\blackangel\notification\NotificationServices.class
+com\blackangel\notification\NotificationApplication.class
+com\blackangel\notification\Notification$NotificationBuilder.class
+com\blackangel\notification\rabbitmq\NotificationConsumer.class
+com\blackangel\notification\NotificationRepository.class
