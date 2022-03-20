@@ -9,7 +9,7 @@ services:
     volumes:
       - postgres:/data/postgres
     ports:
-      - "5455:5432"
+      - "5432:5432"
     networks:
       - postgres
     restart: unless-stopped
@@ -33,6 +33,8 @@ services:
     ports:
       # Port used for the Zipkin UI and HTTP Api
       - "9411:9411"
+    networks:
+      - spring
     depends_on:
       - storage
   rabbitmq:
@@ -42,9 +44,79 @@ services:
       # Port used for docker container rabbitmq, host port and internal docker port
       - "5672:5672"
       - "15672:15672"
-
+    networks:
+      - spring
+  eureka-server:
+    image: yohannes84/eureka-server:latest
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - zipkin
+  apigw:
+    image: yohannes84/apigw:latest
+    container_name: apigw
+    ports:
+      - "4007:4007"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - zipkin
+  customer:
+    image: yohannes84/customer:latest
+    container_name: customer
+    ports:
+      - "4000:4000"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - zipkin
+      - eureka-server
+      - postgres
+      - rabbitmq
+  fraud:
+    image: yohannes84/fraud:latest
+    container_name: fraud
+    ports:
+      - "4001:4001"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - zipkin
+      - eureka-server
+      - postgres
+      - rabbitmq
+  notification:
+    image: yohannes84/notification:latest
+    container_name: notification
+    ports:
+      - "4002:4002"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - zipkin
+      - eureka-server
+      - postgres
+      - rabbitmq
 networks:
   postgres:
+    driver: bridge
+  spring:
     driver: bridge
 volumes:
     postgres:

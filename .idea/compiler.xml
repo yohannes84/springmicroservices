@@ -11,9 +11,9 @@
         <module name="apigw" />
         <module name="clients" />
         <module name="advancedMQprotocol" />
-        <module name="Customer" />
         <module name="fraud" />
         <module name="eureka-server" />
+        <module name="customer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
