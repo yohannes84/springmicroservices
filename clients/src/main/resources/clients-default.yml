@@ -1,0 +1,3 @@
+clients.customer.url=http//localhost:4000
+clients.fraud.url=http//localhost:4001
+clients.notification.url=http//localhost:4002

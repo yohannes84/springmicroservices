@@ -5,7 +5,7 @@ spring:
     name: customer
   datasource:
     username: postgres
-    url: jdbc:postgresql://localhost:5455/customer
+    url: jdbc:postgresql://localhost:5432/customer
     password: root
 
   jpa:
@@ -27,3 +27,4 @@ eureka:
       defaultZone: http://localhost:8761/eureka
     fetch-registry: true
     register-with-eureka: true
+    enabled: false
